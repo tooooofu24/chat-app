@@ -1,16 +1,18 @@
+import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import { Avatar, Badge, List } from "react-native-paper";
 
 export const TalkTile = () => {
+  const navigation = useNavigation();
+  const onPress = () => {
+    navigation.navigate("TalkRoom");
+  };
   return (
     <List.Item
-      onPress={() => {
-        console.log("pressed");
-      }}
+      onPress={onPress}
       title="まこち"
       description="初めまして！まこです！"
       titleStyle={{
-        color: "#000",
         fontWeight: "bold",
       }}
       left={() => (

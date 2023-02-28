@@ -3,7 +3,7 @@ import { List } from "react-native-paper";
 
 import { TalkTile } from "../components/TalkTile";
 
-export default function TabOneScreen() {
+export default function TalkRoomListScreen() {
   return (
     <ScrollView style={styles.container}>
       <List.Section style={{ width: "100%" }}>

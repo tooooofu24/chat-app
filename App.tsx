@@ -12,7 +12,7 @@ export default function App() {
     return null;
   } else {
     return (
-      <PaperProvider>
+      <PaperProvider theme={{ dark: false }}>
         <SafeAreaProvider>
           <Navigation />
           <StatusBar />

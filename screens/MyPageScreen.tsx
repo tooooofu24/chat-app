@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
 
-export default function TabTwoScreen() {
+export default function MyPageScreen() {
   return (
     <View style={styles.container}>
       <Button

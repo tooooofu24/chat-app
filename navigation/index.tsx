@@ -9,10 +9,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 
-import ModalScreen from "../screens/ModalScreen";
+import MyPageScreen from "../screens/MyPageScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
+import TalkRoomListScreen from "../screens/TalkRoomListScreen";
+import { TalkRoomScreen } from "../screens/TalkRoomScreen";
 import { RootStackParamList, RootTabParamList } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 
@@ -39,13 +39,15 @@ function RootNavigator() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
+        name="TalkRoom"
+        component={TalkRoomScreen}
+        options={{ title: "トーク" }}
+      />
+      <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
       />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
     </Stack.Navigator>
   );
 }
@@ -58,10 +60,10 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator initialRouteName="TabOne">
+    <BottomTab.Navigator initialRouteName="TalkRoomList">
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
+        name="TalkRoomList"
+        component={TalkRoomListScreen}
         options={{
           title: "トーク",
           tabBarIcon: ({ color }) => (
@@ -70,8 +72,8 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="MyPage"
+        component={MyPageScreen}
         options={{
           title: "マイページ",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
